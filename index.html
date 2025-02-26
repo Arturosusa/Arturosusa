@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi sitio web</title>
     <style>
-        /* Ajustes generales para toda la página */
+        /* Ajustes generales */
         body {
             margin: 0;
             padding: 0;
@@ -13,29 +13,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100vw; /* Ocupar todo el ancho */
-            height: 100vh; /* Ocupar todo el alto */
-            overflow: auto; /* Permitir desplazamiento */
+            width: 100vw;
+            height: 100vh;
+            overflow: auto; /* Permitir desplazamiento en cualquier dirección */
         }
 
-        /* 🔹 Imagen para que ocupe TODA la pantalla en desktop */
+        /* 🔹 Imagen para DESKTOP (ajustada completamente sin espacios en los lados) */
         img {
-            width: 100vw;  /* Ocupará todo el ancho de la pantalla */
-            height: 100vh; /* Ocupará todo el alto de la pantalla */
-            object-fit: cover; /* Se expandirá para cubrir todo sin dejar espacios */
+            width: 100vw;  /* Ocupará todo el ancho */
+            height: 100vh; /* Ocupará todo el alto */
+            object-fit: cover; /* Se expandirá sin dejar espacios */
         }
 
-        /* 🔹 Ajustes para TELÉFONOS en VERTICAL (permite explorar la imagen) */
-        @media (max-width: 768px) and (orientation: portrait) {
+        /* 🔹 Ajustes para TELÉFONOS: Permitir desplazamiento en TODAS LAS DIRECCIONES */
+        @media (max-width: 768px) {
             body {
-                overflow: scroll; /* Permite desplazamiento con el dedo */
+                display: block; /* Permite que la imagen ocupe todo el espacio disponible */
+                overflow: scroll; /* Habilita desplazamiento en todas las direcciones */
             }
 
             img {
-                width: auto; /* Se ajustará según la pantalla */
+                width: auto; /* Se ajustará automáticamente */
                 height: auto; /* Mantiene la proporción */
-                min-width: 100vw; /* Asegura que ocupe todo el ancho */
-                min-height: 100vh; /* Asegura que ocupe todo el alto */
+                min-width: 100vw; /* Asegura que la imagen sea al menos del ancho del teléfono */
+                min-height: 100vh; /* Asegura que la imagen sea al menos del alto del teléfono */
             }
         }
     </style>
