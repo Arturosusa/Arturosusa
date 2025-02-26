@@ -18,12 +18,13 @@
             overflow: auto; /* Permite exploración */
         }
 
-        /* 🔹 Imagen para DESKTOP (Reducir 10% en altura, sin afectar ancho) */
+        /* 🔹 Imagen para DESKTOP (Misma configuración, pero bajando 1 cm) */
         @media (min-width: 1024px) {
             img {
                 width: 100vw; /* Mantiene el ancho completo */
-                height: 80vh; /* Reduce la altura en un 10% */
+                height: auto; /* Mantiene la proporción */
                 object-fit: contain; /* Se ajusta sin distorsionar */
+                transform: translateY(10px); /* Baja la imagen 1 cm (aprox) */
             }
 
             body {
