@@ -15,20 +15,21 @@
             align-items: center;
             width: 100vw;
             height: 100vh;
-            overflow: auto; /* Permite exploración si es necesario */
+            overflow: auto; /* Permite exploración con scroll */
         }
 
-        /* 🔹 Imagen en DESKTOP (Reducida un 2% y bajada 0.5 cm) */
+        /* 🔹 Imagen en DESKTOP (abarca toda la pantalla y permite exploración) */
         @media (min-width: 1024px) {
             img {
-                width: 98vw; /* Reduce el ancho un 2% */
-                height: 98vh; /* Reduce la altura un 2% */
-                object-fit: contain; /* Se ajusta sin distorsionarse */
-                transform: translateY(5px); /* Baja la imagen 0.5 cm */
+                width: auto; /* Mantiene la proporción */
+                height: auto; /* Mantiene la proporción */
+                min-width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
+                min-height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
+                object-fit: contain; /* Ajusta la imagen sin recortar */
             }
 
             body {
-                overflow: hidden; /* Evita barras de desplazamiento innecesarias */
+                overflow: scroll; /* Permite desplazarse con los cursores */
             }
         }
 
