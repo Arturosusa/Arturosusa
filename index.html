@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi sitio web</title>
     <style>
-        /* Configuración del cuerpo */
+        /* Ajustes generales */
         body {
             margin: 0;
             padding: 0;
@@ -13,22 +13,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* La página ocupa el 100% del alto */
-            overflow: auto; /* Permite desplazamiento si es necesario */
+            min-height: 100vh; /* Se asegura de ocupar toda la pantalla */
+            overflow: auto; /* Permite desplazamiento si la imagen es más grande */
         }
 
-        /* Ajuste de la imagen (por defecto para desktop) */
+        /* Imagen por defecto (para desktop y móviles en horizontal) */
         img {
-            width: 100vw; /* La imagen ocupa todo el ancho */
+            width: 100vw; /* La imagen ocupa todo el ancho de la pantalla */
             height: auto; /* Mantiene la proporción */
-            object-fit: contain; /* Ajusta la imagen sin recortarla */
+            object-fit: contain; /* Se adapta sin recortarse */
         }
 
-        /* 🔹 Ajuste ESPECÍFICO para teléfonos en modo vertical */
+        /* 🔹 Ajustes específicos para teléfonos en MODO VERTICAL */
         @media (max-width: 768px) and (orientation: portrait) {
             img {
-                max-height: 80vh; /* Reduce la altura SOLO en móviles en vertical */
-                width: auto; /* Evita que se deforme */
+                height: 100vh; /* Abarca toda la pantalla en altura */
+                width: auto; /* Mantiene la proporción sin deformarse */
+            }
+        }
+
+        /* 🔹 Ajustes para que la imagen NO SE CORTE en desktop */
+        @media (min-width: 1024px) {
+            img {
+                max-height: 100vh; /* Ajusta la imagen a la pantalla sin cortar */
+                width: auto; /* Mantiene la proporción */
             }
         }
     </style>
