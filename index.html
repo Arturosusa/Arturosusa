@@ -15,20 +15,20 @@
             align-items: center;
             width: 100vw;
             height: 100vh;
-            overflow: auto; /* Permite exploración */
+            overflow: auto; /* Permite exploración si es necesario */
         }
 
-        /* 🔹 Imagen para DESKTOP (Misma configuración, pero bajando 1 cm) */
+        /* 🔹 Imagen en DESKTOP (ocupa toda la pantalla y se baja 0.5 cm) */
         @media (min-width: 1024px) {
             img {
                 width: 100vw; /* Mantiene el ancho completo */
-                height: auto; /* Mantiene la proporción */
-                object-fit: contain; /* Se ajusta sin distorsionar */
-                transform: translateY(10px); /* Baja la imagen 1 cm (aprox) */
+                height: 100vh; /* Mantiene el alto completo */
+                object-fit: cover; /* Cubre toda la pantalla sin dejar espacios */
+                transform: translateY(5px); /* Baja la imagen 0.5 cm (5px) */
             }
 
             body {
-                overflow: scroll; /* Permite exploración con los cursores */
+                overflow: hidden; /* Evita barras de desplazamiento innecesarias */
             }
         }
 
