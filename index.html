@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi sitio web</title>
     <style>
-        /* Ajustes generales */
+        /* Ajustes generales para evitar recortes */
         body {
             margin: 0;
             padding: 0;
@@ -13,30 +13,34 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Se asegura de ocupar toda la pantalla */
-            overflow: auto; /* Permite desplazamiento si la imagen es más grande */
+            height: 100vh; /* Ocupar toda la pantalla */
+            overflow: auto; /* Permite desplazamiento si es necesario */
         }
 
-        /* Imagen por defecto (para desktop y móviles en horizontal) */
+        /* Ajuste de la imagen para que NUNCA se recorte */
         img {
-            width: 100vw; /* La imagen ocupa todo el ancho de la pantalla */
-            height: auto; /* Mantiene la proporción */
-            object-fit: contain; /* Se adapta sin recortarse */
+            max-width: 100vw; /* La imagen nunca será más ancha que la pantalla */
+            max-height: 100vh; /* La imagen nunca será más alta que la pantalla */
+            width: auto; /* Mantiene la proporción */
+            height: auto;
+            object-fit: contain; /* Ajusta la imagen para que nunca se recorte */
         }
 
         /* 🔹 Ajustes específicos para teléfonos en MODO VERTICAL */
         @media (max-width: 768px) and (orientation: portrait) {
             img {
-                height: 100vh; /* Abarca toda la pantalla en altura */
-                width: auto; /* Mantiene la proporción sin deformarse */
+                width: 100vw; /* Ajusta al ancho del teléfono */
+                height: auto; /* Mantiene la proporción */
+                max-height: 100vh; /* Evita que la imagen se recorte en altura */
             }
         }
 
-        /* 🔹 Ajustes para que la imagen NO SE CORTE en desktop */
+        /* 🔹 Ajustes específicos para DESKTOP (evita recortes horizontales) */
         @media (min-width: 1024px) {
             img {
-                max-height: 100vh; /* Ajusta la imagen a la pantalla sin cortar */
-                width: auto; /* Mantiene la proporción */
+                width: auto; /* Mantiene la proporción sin forzar el ancho */
+                height: 100vh; /* Ajusta la altura sin cortar los lados */
+                max-width: 100vw; /* Evita que la imagen sea más ancha que la pantalla */
             }
         }
     </style>
