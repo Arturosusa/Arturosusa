@@ -18,13 +18,13 @@
             overflow: auto; /* Permite exploración si es necesario */
         }
 
-        /* 🔹 Imagen en DESKTOP (ocupa toda la pantalla y se baja 0.5 cm) */
+        /* 🔹 Imagen en DESKTOP (Reducida un 2% y bajada 0.5 cm) */
         @media (min-width: 1024px) {
             img {
-                width: 100vw; /* Mantiene el ancho completo */
-                height: 100vh; /* Mantiene el alto completo */
-                object-fit: cover; /* Cubre toda la pantalla sin dejar espacios */
-                transform: translateY(5px); /* Baja la imagen 0.5 cm (5px) */
+                width: 98vw; /* Reduce el ancho un 2% */
+                height: 98vh; /* Reduce la altura un 2% */
+                object-fit: contain; /* Se ajusta sin distorsionarse */
+                transform: translateY(5px); /* Baja la imagen 0.5 cm */
             }
 
             body {
