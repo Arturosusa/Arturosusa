@@ -15,35 +15,50 @@
             align-items: center;
             width: 100vw;
             height: 100vh;
-            overflow: auto; /* Permite exploración en todas direcciones */
+            overflow: auto; /* Permite exploración */
         }
 
-        /* 🔹 Imagen para DESKTOP con 15% de ampliación y scroll */
+        /* 🔹 Imagen para DESKTOP (Reducir 5% en altura, sin afectar ancho) */
         @media (min-width: 1024px) {
             img {
-                width: 115vw; /* Aumenta el ancho un 15% más allá de la pantalla */
-                height: auto; /* Mantiene la proporción */
-                max-height: 115vh; /* Aumenta la altura un 15% */
-                object-fit: contain; /* Mantiene la imagen sin cortes */
+                width: 100vw; /* Mantiene el ancho completo */
+                height: 90vh; /* Reduce la altura en un 5% de cada lado */
+                object-fit: contain; /* Se ajusta sin distorsionar */
             }
 
             body {
-                overflow: scroll; /* Permite exploración total con los cursores */
+                overflow: scroll; /* Permite exploración con cursores */
             }
         }
 
-        /* 🔹 Permitir exploración total en TELÉFONOS */
-        @media (max-width: 768px) {
+        /* 🔹 Ajustes para TELÉFONOS en VERTICAL (Exploración total) */
+        @media (max-width: 768px) and (orientation: portrait) {
             body {
                 display: block;
-                overflow: scroll; /* Permite moverse en todas direcciones */
+                overflow: scroll; /* Permite desplazamiento */
             }
 
             img {
-                width: auto; /* Ajuste automático del ancho */
-                height: auto; /* Ajuste automático de la altura */
-                min-width: 100vw; /* Asegura que la imagen sea al menos del ancho del teléfono */
-                min-height: 100vh; /* Asegura que la imagen sea al menos del alto del teléfono */
+                width: auto;
+                height: auto;
+                min-width: 100vw;
+                min-height: 100vh;
+            }
+        }
+
+        /* 🔹 Ajustes para TELÉFONOS en HORIZONTAL (Se muestra completa sin scroll) */
+        @media (max-width: 768px) and (orientation: landscape) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden; /* Evita scroll innecesario */
+            }
+
+            img {
+                width: 100vw; /* Ocupa todo el ancho */
+                height: 100vh; /* Ocupa todo el alto */
+                object-fit: cover; /* Se ajusta para cubrir todo sin dejar espacios */
             }
         }
     </style>
