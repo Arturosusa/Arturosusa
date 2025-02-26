@@ -3,64 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imagen Pantalla Completa</title>
+    <title>Mi sitio web</title>
     <style>
-        /* Estilos generales */
+        /* Ajustes generales */
         body {
             margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* Estilos para la imagen en pantalla completa */
-        .fullscreen {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100vw;
             height: 100vh;
-            object-fit: contain;
-            background-color: black;
-            cursor: zoom-out;
+            overflow: auto; /* Permite exploración si es necesario */
         }
 
-        /* Media query para móviles: desactiva la funcionalidad */
-        @media (max-width: 768px) {
+        /* 🔹 Imagen en DESKTOP (Ocupando toda la pantalla) */
+        @media (min-width: 1024px) {
             img {
-                cursor: default;
+                width: 100vw; /* Ocupar todo el ancho */
+                height: 100vh; /* Ocupar todo el alto */
+                object-fit: cover; /* Asegura que la imagen llene toda la pantalla sin distorsión */
+            }
+
+            body {
+                overflow: hidden; /* Evita scroll innecesario */
+            }
+        }
+
+        /* 🔹 Mantener la imagen en TELÉFONOS (Sin cambios) */
+        @media (max-width: 768px) {
+            body {
+                display: block;
+                overflow: scroll; /* Permite desplazamiento */
+            }
+
+            img {
+                width: auto;
+                height: auto;
+                min-width: 100vw;
+                min-height: 100vh;
             }
         }
     </style>
 </head>
 <body>
 
-    <img id="imagen" src="https://via.placeholder.com/800x600" alt="Imagen Ejemplo">
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const imagen = document.getElementById("imagen");
-
-            imagen.addEventListener("click", function () {
-                if (window.innerWidth > 768) { // Solo en escritorio
-                    if (!this.classList.contains("fullscreen")) {
-                        this.classList.add("fullscreen");
-                    } else {
-                        this.classList.remove("fullscreen");
-                    }
-                }
-            });
-        });
-    </script>
+    <!-- 🔹 Aquí se carga la imagen con ajustes para desktop y móviles -->
+    <img src="imagen.jpg" alt="Descripción de la imagen">
 
 </body>
 </html>
