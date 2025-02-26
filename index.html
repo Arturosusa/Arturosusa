@@ -15,17 +15,24 @@
             align-items: center;
             width: 100vw;
             height: 100vh;
-            overflow: hidden; /* Evita desplazamiento no deseado */
+            overflow: auto; /* Permite exploración en todas direcciones */
         }
 
-        /* 🔹 Imagen para enmarcar en desktop */
-        img {
-            width: 100vw;  /* Ocupará todo el ancho de la pantalla */
-            height: 100vh; /* Ocupará todo el alto de la pantalla */
-            object-fit: contain; /* Ajusta la imagen dentro del área sin recortes */
+        /* 🔹 Imagen para DESKTOP con 15% de ampliación y scroll */
+        @media (min-width: 1024px) {
+            img {
+                width: 115vw; /* Aumenta el ancho un 15% más allá de la pantalla */
+                height: auto; /* Mantiene la proporción */
+                max-height: 115vh; /* Aumenta la altura un 15% */
+                object-fit: contain; /* Mantiene la imagen sin cortes */
+            }
+
+            body {
+                overflow: scroll; /* Permite exploración total con los cursores */
+            }
         }
 
-        /* 🔹 Permitir exploración completa en TELÉFONOS */
+        /* 🔹 Permitir exploración total en TELÉFONOS */
         @media (max-width: 768px) {
             body {
                 display: block;
