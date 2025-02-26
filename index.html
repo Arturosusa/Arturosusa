@@ -3,71 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi sitio web</title>
+    <title>Imagen Pantalla Completa</title>
     <style>
-        /* Ajustes generales */
+        /* Estilos generales */
         body {
             margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Estilos para la imagen en pantalla completa */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
-            overflow: auto; /* Permite exploración si es necesario */
+            object-fit: contain;
+            background-color: black;
+            cursor: zoom-out;
         }
 
-        /* 🔹 Imagen en DESKTOP (Mismo tamaño, pero bajada un poco) */
-        @media (min-width: 1024px) {
+        /* Media query para móviles: desactiva la funcionalidad */
+        @media (max-width: 768px) {
             img {
-                width: 100vw; /* Mantiene el ancho completo */
-                height: 100vh; /* Mantiene el alto completo */
-                object-fit: contain; /* Ajusta la imagen sin recortarla */
-                transform: translateY(10px); /* Baja la imagen 10px (aprox 1 cm) */
-            }
-
-            body {
-                overflow: scroll; /* Permite desplazamiento con los cursores */
-            }
-        }
-
-        /* 🔹 Ajustes para TELÉFONOS en VERTICAL (Exploración total) */
-        @media (max-width: 768px) and (orientation: portrait) {
-            body {
-                display: block;
-                overflow: scroll; /* Permite desplazamiento */
-            }
-
-            img {
-                width: auto;
-                height: auto;
-                min-width: 100vw;
-                min-height: 100vh;
-            }
-        }
-
-        /* 🔹 Ajustes para TELÉFONOS en HORIZONTAL (Se muestra completa sin scroll) */
-        @media (max-width: 768px) and (orientation: landscape) {
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden; /* Evita scroll innecesario */
-            }
-
-            img {
-                width: 100vw; /* Ocupa todo el ancho */
-                height: 100vh; /* Ocupa todo el alto */
-                object-fit: cover; /* Se ajusta para cubrir todo sin dejar espacios */
+                cursor: default;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🔹 Aquí se carga la imagen con el ajuste de posición -->
-    <img src="imagen.jpg" alt="Descripción de la imagen">
+    <img id="imagen" src="https://via.placeholder.com/800x600" alt="Imagen Ejemplo">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const imagen = document.getElementById("imagen");
+
+            imagen.addEventListener("click", function () {
+                if (window.innerWidth > 768) { // Solo en escritorio
+                    if (!this.classList.contains("fullscreen")) {
+                        this.classList.add("fullscreen");
+                    } else {
+                        this.classList.remove("fullscreen");
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
