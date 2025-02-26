@@ -15,21 +15,37 @@
             align-items: center;
             width: 100vw;
             height: 100vh;
-            overflow: auto; /* Permitir desplazamiento en cualquier dirección */
+            overflow: auto; /* Permite desplazamiento */
         }
 
-        /* 🔹 Imagen para DESKTOP (ajustada completamente sin espacios en los lados) */
+        /* 🔹 Imagen por defecto (para desktop y móviles en horizontal) */
         img {
-            width: 100vw;  /* Ocupará todo el ancho */
-            height: 100vh; /* Ocupará todo el alto */
-            object-fit: cover; /* Se expandirá sin dejar espacios */
+            width: auto; /* Se ajusta automáticamente */
+            height: auto; /* Mantiene la proporción */
+            min-width: 100vw; /* Asegura que la imagen ocupe al menos todo el ancho */
+            min-height: 100vh; /* Asegura que la imagen ocupe al menos todo el alto */
         }
 
-        /* 🔹 Ajustes para TELÉFONOS: Permitir desplazamiento en TODAS LAS DIRECCIONES */
+        /* 🔹 Permitir scroll arriba y abajo en DESKTOP */
+        @media (min-width: 1024px) {
+            body {
+                display: block; /* Permite que la imagen sea más grande que la pantalla */
+                overflow: scroll; /* Habilita desplazamiento en todas las direcciones */
+            }
+
+            img {
+                width: auto; /* La imagen se ajusta al contenido */
+                height: auto; /* Mantiene la proporción */
+                max-width: none; /* Permite que la imagen sea más ancha si es necesario */
+                max-height: none; /* Permite que la imagen sea más alta si es necesario */
+            }
+        }
+
+        /* 🔹 Permitir exploración total en TELÉFONOS */
         @media (max-width: 768px) {
             body {
-                display: block; /* Permite que la imagen ocupe todo el espacio disponible */
-                overflow: scroll; /* Habilita desplazamiento en todas las direcciones */
+                display: block;
+                overflow: scroll; /* Permite moverse en todas direcciones */
             }
 
             img {
