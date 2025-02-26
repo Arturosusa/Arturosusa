@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi sitio web</title>
     <style>
-        /* Ajusta la imagen para que no se salga de la pantalla */
-        img {
-            max-width: 100%;  /* La imagen no será más ancha que la pantalla */
-            max-height: 100vh; /* La imagen no será más alta que la pantalla del dispositivo */
-            height: auto;  /* Mantiene la proporción de la imagen */
-            display: block;  /* Evita espacios en blanco adicionales */
-            margin: 0 auto;  /* Centra la imagen */
-        }
-
-        /* Asegura que el cuerpo de la página no tenga márgenes */
+        /* Configuración del cuerpo */
         body {
             margin: 0;
             padding: 0;
-            text-align: center; /* Centra la imagen en pantalla */
             background-color: #f8f8f8; /* Color de fondo opcional */
-            overflow: hidden; /* Evita que la página haga scroll innecesario */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* La página ocupará el 100% del alto del dispositivo */
+            overflow: hidden; /* Evita desplazamiento vertical */
+        }
+
+        /* Ajuste de la imagen para que llene toda la pantalla */
+        img {
+            width: 100vw; /* La imagen ocupa todo el ancho disponible */
+            height: 100vh; /* La imagen ocupa todo el alto disponible */
+            object-fit: cover; /* La imagen se ajusta para cubrir toda la pantalla */
         }
     </style>
 </head>
