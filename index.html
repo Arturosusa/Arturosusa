@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi sitio web</title>
     <style>
-        /* Estilos generales */
+        /* Ajustes generales para toda la página */
         body {
             margin: 0;
             padding: 0;
@@ -13,38 +13,29 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Hace que el cuerpo ocupe toda la pantalla */
-            width: 100vw; /* Hace que el cuerpo ocupe todo el ancho */
-            overflow: auto; /* Permite desplazamiento si la imagen es más grande */
+            width: 100vw; /* Ocupar todo el ancho */
+            height: 100vh; /* Ocupar todo el alto */
+            overflow: auto; /* Permitir desplazamiento */
         }
 
-        /* Imagen para que cubra TODA la pantalla sin cortes */
+        /* 🔹 Imagen para que ocupe TODA la pantalla en desktop */
         img {
-            width: auto; /* Ajusta el ancho automáticamente */
-            height: auto; /* Ajusta la altura automáticamente */
-            max-width: 100vw; /* Evita que sea más ancha que la pantalla */
-            max-height: 100vh; /* Evita que sea más alta que la pantalla */
+            width: 100vw;  /* Ocupará todo el ancho de la pantalla */
+            height: 100vh; /* Ocupará todo el alto de la pantalla */
+            object-fit: cover; /* Se expandirá para cubrir todo sin dejar espacios */
         }
 
-        /* 🔹 Para teléfonos en modo VERTICAL: ocupa toda la pantalla */
+        /* 🔹 Ajustes para TELÉFONOS en VERTICAL (permite explorar la imagen) */
         @media (max-width: 768px) and (orientation: portrait) {
-            img {
-                width: 100vw; /* Ocupará todo el ancho */
-                height: 100vh; /* Ocupará todo el alto */
-                object-fit: contain; /* Se asegurará de que la imagen no se recorte */
-            }
-        }
-
-        /* 🔹 Para DESKTOP: La imagen cubrirá toda la pantalla y permitirá SCROLL */
-        @media (min-width: 1024px) {
             body {
-                overflow: scroll; /* Permite desplazamiento si la imagen es grande */
+                overflow: scroll; /* Permite desplazamiento con el dedo */
             }
+
             img {
-                width: auto; /* Se ajustará al contenido */
-                height: auto; /* Se ajustará al contenido */
-                max-width: 100vw; /* Ocupará todo el ancho */
-                max-height: 100vh; /* Ocupará todo el alto */
+                width: auto; /* Se ajustará según la pantalla */
+                height: auto; /* Mantiene la proporción */
+                min-width: 100vw; /* Asegura que ocupe todo el ancho */
+                min-height: 100vh; /* Asegura que ocupe todo el alto */
             }
         }
     </style>
