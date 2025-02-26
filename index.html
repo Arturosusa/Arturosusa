@@ -8,17 +8,19 @@
         /* Ajusta la imagen para que no se salga de la pantalla */
         img {
             max-width: 100%;  /* La imagen no será más ancha que la pantalla */
-            height: auto;     /* Mantiene la proporción de la imagen */
-            display: block;   /* Evita espacios en blanco adicionales */
-            margin: 0 auto;   /* Centra la imagen horizontalmente */
+            max-height: 100vh; /* La imagen no será más alta que la pantalla del dispositivo */
+            height: auto;  /* Mantiene la proporción de la imagen */
+            display: block;  /* Evita espacios en blanco adicionales */
+            margin: 0 auto;  /* Centra la imagen */
         }
 
         /* Asegura que el cuerpo de la página no tenga márgenes */
         body {
             margin: 0;
             padding: 0;
-            text-align: center; /* Centra el contenido si hay más elementos */
+            text-align: center; /* Centra la imagen en pantalla */
             background-color: #f8f8f8; /* Color de fondo opcional */
+            overflow: hidden; /* Evita que la página haga scroll innecesario */
         }
     </style>
 </head>
