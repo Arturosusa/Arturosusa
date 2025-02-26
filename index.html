@@ -9,19 +9,27 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8; /* Color de fondo opcional */
+            background-color: #f8f8f8;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* La página ocupará el 100% del alto del dispositivo */
-            overflow: hidden; /* Evita desplazamiento vertical */
+            height: 100vh; /* La página ocupa el 100% del alto */
+            overflow: auto; /* Permite desplazamiento si es necesario */
         }
 
-        /* Ajuste de la imagen para que llene toda la pantalla */
+        /* Ajuste de la imagen (por defecto para desktop) */
         img {
-            width: 100vw; /* La imagen ocupa todo el ancho disponible */
-            height: 100vh; /* La imagen ocupa todo el alto disponible */
-            object-fit: cover; /* La imagen se ajusta para cubrir toda la pantalla */
+            width: 100vw; /* La imagen ocupa todo el ancho */
+            height: auto; /* Mantiene la proporción */
+            object-fit: contain; /* Ajusta la imagen sin recortarla */
+        }
+
+        /* 🔹 Ajuste ESPECÍFICO para teléfonos en modo vertical */
+        @media (max-width: 768px) and (orientation: portrait) {
+            img {
+                max-height: 80vh; /* Reduce la altura SOLO en móviles en vertical */
+                width: auto; /* Evita que se deforme */
+            }
         }
     </style>
 </head>
